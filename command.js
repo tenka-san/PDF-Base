@@ -138,27 +138,134 @@ try {
                 })
               }, 
               {
-                name: "galaxy_message",
+                name: "quick_reply",
                 buttonParamsJson: JSON.stringify({
-                  flow_cta: "7eppeli.pdf", 
+                  display_text: "System Info", 
+                  id: "systeminfo"
+                })
+              }, 
+              {
+                name: "quick_reply",
+                buttonParamsJson: JSON.stringify({
+                  display_text: "Thanks To", 
+                  id: "tqto"
+                })
+              }, 
+              {
+                name: "address_message",
+                buttonParamsJson: "{}"
+              }
+            ]
+          }
+        }
+      };
+  
+      WaSocket.sendMessage(m.chat, msg, {
+        quoted: x
+      })
+    }
+    break;
+    case "systeminfo": {
+      const totalMem = os.totalmem();
+      const freeMem = os.freemem();
+      const usedMem = totalMem - freeMem;
+                
+      const usedGB = Math.floor(usedMem / 1024 / 1024 / 1024);
+      const totalGB = Math.floor(totalMem / 1024 / 1024 / 1024);
+                
+      let timestamp = Date.now();
+      let latensi = Date.now() - timestamp;
+
+      WaSocket.sendMessage(m.chat, { 
+        pollResultMessage: { 
+          name: "System Info", 
+          pollVotes: [
+            {
+              optionName: "Speed (ms)",
+              optionVoteCount: Math.max(1, Math.floor(latensi)) 
+            },
+            {
+              optionName: "RAM Used (GB)",
+              optionVoteCount: usedGB
+            },
+            {
+              optionName: "Total RAM (GB)",
+              optionVoteCount: totalGB
+            }
+          ], 
+          newsletter: {
+            newsletterJid: "120363425000320171@newsletter", 
+            newsletterName: "PDF's Team | Information"
+          }
+        } 
+      }, { quoted: x });
+    }
+    break;
+    case "tqto": {
+      const teks = `There's My Family who help me in 2025 - 2026`;
+      const msg = {
+        interactiveMessage: {
+          title: teks, 
+          image: fs.readFileSync('./Images/img.jpg'), 
+          nativeFlowMessage: {
+            messageParamsJson: JSON.stringify({
+              limited_time_offer: {
+                text: "PDF's WaBot",
+                url: "t.me/YuukeyD7eppeli",
+                copy_code: "7eppeli.pdf",
+                expiration_time: Date.now() * 999
+              },
+              bottom_sheet: {
+                in_thread_buttons_limit: 1,
+                divider_indices: [1, 2, 3, 4, 5, 999],
+                list_title: "PDF's WaBot",
+                button_title: "PDF's Family"
+              }
+            }),
+            buttons: [
+              {
+                name: "galaxy_message", 
+                buttonParamsJson: JSON.stringify({
+                  flow_cta: "╭───「 PDF's Family 」", 
                   icon: "DEFAULT", 
-                  flow_message_version: "3"
+                  flow_message_version: "3", 
+                  flow_id: ".menu"
                 })
               }, 
               {
                 name: "galaxy_message",
                 buttonParamsJson: JSON.stringify({
-                  flow_cta: "Jhonixhox.pdf", 
-                  icon: "DEFAULT", 
-                  flow_message_version: "3"
+                  flow_cta: "│ ▢ 7eppeli.pdf", 
+                  icon: "REVIEW", 
+                  flow_message_version: "3", 
+                  flow_id: ".menu"
                 })
               }, 
               {
                 name: "galaxy_message",
                 buttonParamsJson: JSON.stringify({
-                  flow_cta: "thanror(.pdf?)", 
+                  flow_cta: "│ ▢ Jhonixhox.pdf", 
+                  icon: "DOCUMENT", 
+                  flow_message_version: "3", 
+                  flow_id: ".menu"
+                })
+              }, 
+              {
+                name: "galaxy_message",
+                buttonParamsJson: JSON.stringify({
+                  flow_cta: "│ ▢ thanror(.pdf?)", 
+                  icon: "PROMOTION", 
+                  flow_message_version: "3", 
+                  flow_id: ".menu"
+                })
+              }, 
+              {
+                name: "galaxy_message", 
+                buttonParamsJson: JSON.stringify({
+                  flow_cta: "╰──────────⊱", 
                   icon: "DEFAULT", 
-                  flow_message_version: "3"
+                  flow_message_version: "3", 
+                  flow_id: ".menu"
                 })
               }
             ]
