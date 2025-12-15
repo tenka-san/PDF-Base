@@ -9,6 +9,7 @@ const speed = require('performance-now');
 const similarity = require('similarity');
 const { spawn, exec, execSync } = require('child_process');
 const crypto = require('crypto');
+const os = require('os');
 const {
   default: makeWASocket, 
   proto, 
