@@ -65,11 +65,11 @@ async function connectToWhatsApp() {
     });
 
     if (!WaSocket.authState.creds.registered) {
-        console.log(chalk.hex("#E6E6FA")(`PDF's WaBot Has Been Started`));
+        console.log(chalk.hex("#6c5ce7")(`PDF's WaBot Has Been Started`));
 
-const phoneNumber = await question(chalk.hex("#E6E6FA")(`Input Ur Number Starts With 62 (WITHOUT +/-) :\n`));
+const phoneNumber = await question(chalk.hex("#6c5ce7")(`Input Ur Number Starts With 62 (WITHOUT +/-) :\n`));
        const code = await WaSocket.requestPairingCode(phoneNumber, "D7EPPELI");
-        console.log(chalk.hex("#DDA0DD")(`Ur Pairing Code :\n${code} `));
+        console.log(chalk.hex("#6c5ce7")(`Ur Pairing Code :\n${code} `));
     }
 
     const store = {};
