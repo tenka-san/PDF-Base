@@ -302,25 +302,28 @@ try {
       reply(`${m.chat}`)
     }
     break;
+    case "invtag": {
+      if (!isAdmins) return reply("Hanya admin yang dapat menggunakan perintah ini")
+      if (!isBotAdmins) return reply("Hanya admin yang dapat menggunakan perintah ini")
+      let member = groupMetadata.participants.map(e => e.id)
+      await WaSocket.relayMessage(m.chat, {
+        albumMessage: {
+          contextInfo: {
+            mentionedJid: [...member]
+          }
+        }
+      }, {})
+    }
+    break;
     default:
       if (budy.startsWith('>')) {
+        if (!isOwner) return;
         try {
           let evaled = await eval(budy.slice(2));
           if (typeof evaled !== 'string') evaled = require('util').inspect(evaled);
           reply(evaled);
         } catch (err) {
           reply(String(err));
-        }
-      }
-      if (budy.startsWith('$')) {
-        try {
-          let executed = await exec(budy, (err, stdout) => {
-            if (err) return reply(String(err));
-            if (stdout) return reply(stdout);
-          });
-          reply(executed);
-        } catch (e) {
-          reply(`${e}`)
         }
       }
     }
