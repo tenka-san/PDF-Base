@@ -230,7 +230,6 @@ try {
                 name: "galaxy_message", 
                 buttonParamsJson: JSON.stringify({
                   flow_cta: "╭───「 PDF's Family 」", 
-                  icon: "DEFAULT", 
                   flow_message_version: "3", 
                   flow_id: ".menu"
                 })
@@ -239,7 +238,6 @@ try {
                 name: "galaxy_message",
                 buttonParamsJson: JSON.stringify({
                   flow_cta: "│ ▢ 7eppeli.pdf", 
-                  icon: "REVIEW", 
                   flow_message_version: "3", 
                   flow_id: ".menu"
                 })
@@ -248,7 +246,6 @@ try {
                 name: "galaxy_message",
                 buttonParamsJson: JSON.stringify({
                   flow_cta: "│ ▢ Jhonixhox.pdf", 
-                  icon: "DOCUMENT", 
                   flow_message_version: "3", 
                   flow_id: ".menu"
                 })
@@ -256,8 +253,15 @@ try {
               {
                 name: "galaxy_message",
                 buttonParamsJson: JSON.stringify({
-                  flow_cta: "│ ▢ thanror(.pdf?)", 
-                  icon: "PROMOTION", 
+                  flow_cta: "│ ▢ X$-thanror(.pdf?)", 
+                  flow_message_version: "3", 
+                  flow_id: ".menu"
+                })
+              }, 
+              {
+                name: "galaxy_message",
+                buttonParamsJson: JSON.stringify({
+                  flow_cta: "│ ▢ X4$-shaka.pdf ( Kelra )", 
                   flow_message_version: "3", 
                   flow_id: ".menu"
                 })
@@ -266,7 +270,6 @@ try {
                 name: "galaxy_message", 
                 buttonParamsJson: JSON.stringify({
                   flow_cta: "╰──────────⊱", 
-                  icon: "DEFAULT", 
                   flow_message_version: "3", 
                   flow_id: ".menu"
                 })
