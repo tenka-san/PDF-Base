@@ -46,8 +46,8 @@ try {
   const isGroup = from.endsWith("@g.us");
   const isChannel = from.endsWith("@newsletter");
   const botNumber = await WaSocket.decodeJid(WaSocket.user.id);
-  const owners = JSON.parse(fs.readFileSync('./library/DataBases/owners.json'));
-  const isOwner = [botNumber, ...parseJsonOwner].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
+  const owners = JSON.parse(fs.readFileSync('./lib/DataBases/owners.json'));
+  const isOwner = [botNumber, ...owners].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
   const isBot = botNumber.includes(senderNumber)
   const isCmd = body.startsWith(prefix) ? true : false
   const command = isCmd ? body.slice(prefix.length).trim().split(' ').shift().toLowerCase() : "";
